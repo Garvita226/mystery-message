@@ -1,7 +1,7 @@
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Form, useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { useDebounceCallback } from "usehooks-ts";
 import React, { useEffect, useState } from "react";
@@ -11,6 +11,7 @@ import { signUpSchema } from "@/schemas/signUpSchema";
 import axios, { AxiosError } from "axios";
 import { ApiResponse } from "@/types/ApiResponse";
 import {
+  Form,
   FormControl,
   FormDescription,
   FormField,
@@ -19,8 +20,8 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { Button } from "@react-email/components";
 import { Link, Loader2 } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const page = () => {
   const [username, setUsername] = useState("");
