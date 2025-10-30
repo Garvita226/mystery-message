@@ -1,7 +1,7 @@
-import NextAuth, { DefaultSession } from "next-auth";
+import NextAuth, { DefaultSession, DefaultUser } from "next-auth";
 
 declare module "next-auth" {
-  interface User {
+  interface User extends DefaultUser {
     _id?: string;
     isVerified?: boolean;
     isAcceptingMessages?: boolean;
@@ -9,12 +9,7 @@ declare module "next-auth" {
   }
 
   interface Session {
-    user: {
-      _id?: string;
-      isVerified?: boolean;
-      isAcceptingMessages?: boolean;
-      username?: string;
-    } & DefaultSession["user"];
+    user: User
   }
 }
 
